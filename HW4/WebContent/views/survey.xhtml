@@ -1,0 +1,278 @@
+<!-- 
+    Author: Aranta Rokade
+    SWE 645 : Homework 3
+    CS Department Survey Page
+ -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+ 	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Survey | GMU | CS </title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/styles/styles.css" />
+</h:head>
+
+<h:body>
+	<!-- header  -->
+    <header>
+        <img class="logo" src="#{request.contextPath}/images/gmu_logo.png" alt="GMU Logo" />
+        <span>Department of Computer Science</span>
+    </header>
+   	<!-- survey form conatiner -->
+    <div class="conatiner">
+    	<h:form action="" method="post">
+	        <section id="survey">
+	            <h1>Student Survey</h1>
+	            <p>
+	                <em>Your feedback is valuable</em>
+	            </p>
+		    	<section id="index-link">
+		            <h4>Go to home page? <h:commandLink action="home-page" value="Home Page" immediate="true"/></h4>
+	    	    </section>
+	            <!-- survey form -->
+	               <fieldset>
+	               <!-- student info section -->
+	                   <legend>Personal Information</legend>
+	                   <table>
+	                       <tr>
+	                           <td>
+	                               <label>First Name *</label>
+	                           </td>
+	                           <td>
+	                               <p:inputText id="firstName" 
+	                               	value ="#{surveyBean.student.firstName}" 
+	               					required="true" 
+	               					requiredMessage="Enter your First Name"
+	               					validatorMessage="Enter only alphabets with maximum 15 characters">
+									<f:validateLength maximum="15"/>
+									<f:validateRegex pattern="^[a-zA-Z]+$"/>
+								</p:inputText>
+								<p:message for="firstName" styleClass="error"/>
+	                           </td>
+	                       </tr> 
+	                       <tr>
+	                           <td>
+	                               <label>Last Name *</label>
+	                           </td>
+	                           <td>
+	                               <p:inputText id="lastName" 
+	                               	value ="#{surveyBean.student.lastName}" 
+	               					required="true" 
+	               					requiredMessage="Enter your Last Name" 
+	               					validatorMessage="Enter only alphabets with maximum 15 characters">
+									<f:validateLength maximum="15"/>
+									<f:validateRegex pattern="^[a-zA-Z]+$"/>
+								</p:inputText>
+								<p:message for="lastName" styleClass="error"/>
+	                           </td>
+	                       </tr>
+	                       <tr>
+	                           <td>
+	                               <label>Street Address *</label>
+	                           </td>
+	                           <td>
+	                               <p:inputText id="address" 
+	                               	value ="#{surveyBean.student.address}" 
+	               					required="true" 
+	               					requiredMessage="Enter your Street Address" 
+	               					validatorMessage="Enter only alphanumeric with maximum 30 characters">
+									<f:validateLength maximum="30"/>
+									<f:validateRegex pattern="^[a-zA-Z0-9]+$"/>
+								</p:inputText>
+								<p:message for="address" styleClass="error"/>
+	                           </td>
+	                       </tr>
+	                       <tr>
+	                           <td>
+	                               <label>City *</label>
+	                           </td>
+	                           <td>
+	                               <h:outputText id="city" value="#{surveyBean.student.city}"/>
+	                           </td>
+	                       </tr>
+	                       <tr>
+	                           <td>
+	                               <label>State *</label>
+	                           </td>
+	                           <td>
+	                               <h:outputText id="state" value="#{surveyBean.student.state}"/>
+	                           </td>
+	                       </tr>
+	                       <tr>
+	                           <td>
+	                               <label>Zip Code *</label>
+	                           </td>
+	                           <td>
+	                               <p:inputText id="zipcode"
+	                               	value ="#{surveyBean.student.zipcode}" 
+	                               	required="true"
+	                               	requiredMessage="Enter your Zip Code"
+	                               	converterMessage="Enter only digits"
+	                               	validatorMessage="Enter exactly 5 numbers">
+									<f:validateLength minimum="5" maximum="5"/>
+									<f:ajax event="keyup" render="city state" />
+								</p:inputText>
+								<p:message for="zipcode" styleClass="error"/>
+	                           </td>
+	                       </tr>
+	                       <tr>
+	                           <td>
+	                               <label>Telephone No. *</label>
+	                           </td>
+	                           <td>
+	                               <p:inputMask id="phone"
+	                               	value="#{surveyBean.student.phone}" 
+	                               	mask="(999)-999-9999"
+					                required="true" 
+					                requiredMessage="Enter your Telephone"/>
+								<p:message for="phone" styleClass="error"/>
+	                           </td>
+	                       </tr>
+	                       <tr>
+	                           <td>
+	                               <label>Email Id. *</label>
+	                           </td>
+	                           <td>
+	                               <p:inputText id="email" 
+	                       			value ="#{surveyBean.student.email}" 
+	               					required="true"
+	               					requiredMessage="Enter your Email Id"
+	               					validatorMessage="Enter a valid Email Id">
+	               					<f:validateRegex pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$"/>
+								</p:inputText>
+								<p:message for="email" styleClass="error"/>
+	                           </td>
+	                       </tr>
+	                       <tr>
+	                           <td>
+	                               <label>Date of Survey *</label>
+	                           </td>
+	                           <td>
+	                              	<p:calendar id="surveyDate" 
+	                              	binding="#{surveyDateComponent}"
+	                              	value="#{surveyBean.student.surveyDate}"
+					                required="true" 
+					                requiredMessage="Enter the Date of Survey"
+					                pattern="MM/dd/yyyy" mask="true">
+					            </p:calendar>
+								<p:message for="surveyDate" styleClass="error"/>
+	                           </td>
+	                       </tr>
+	                   </table>
+	               </fieldset>
+	               <fieldset> 
+	               <!-- student feeback section -->
+	                   <legend>Feedback</legend>
+	                   <table>
+	                   		<tr>
+	                           <td>
+	                               <label>Possible Start Date</label>
+	                           </td>
+	                           <td>
+	                              	<p:calendar id="startDate" 
+	                              	value="#{surveyBean.student.startDate}"
+					                pattern="MM/dd/yyyy" mask="true"
+					                validator="#{surveyBean.validateStartDate}">
+					                <f:attribute name="surveyDateComponent" value="#{surveyDateComponent}"/>
+					            </p:calendar>
+								<p:message for="startDate" styleClass="error"/>
+	                           </td>
+	                       </tr>
+	                       <tr>
+	                           <td>
+	                               <label>What did you like the most about GMU?</label>
+	                           </td>
+	                           <td>
+	                               <p:selectManyCheckbox id="likes" value="#{surveyBean.student.likes}">
+						            <f:selectItem itemValue="Students" itemLabel="Students" />
+						            <f:selectItem itemValue="Location" itemLabel="Location" />
+						            <f:selectItem itemValue="Campus" itemLabel="Campus" />
+						            <f:selectItem itemValue="Atmosphere" itemLabel="Atmosphere" />
+						            <f:selectItem itemValue="Dorm rooms" itemLabel="Dorm rooms" />
+						            <f:selectItem itemValue="Sports" itemLabel="Sports" />
+						        </p:selectManyCheckbox>
+						        <p:message for="likes" styleClass="error"/>
+	                           </td>
+	                       </tr>
+	                       <tr>
+	                           <td>
+	                               <label>What interested you the most in GMU?</label>
+	                           </td>
+	                           <td>
+	                               <p:selectOneRadio id="interest" value="#{surveyBean.student.interest}">
+						            <f:selectItem itemValue="Friends" itemLabel="Friends" />
+						            <f:selectItem itemValue="Television" itemLabel="Television" />
+						            <f:selectItem itemValue="Internet" itemLabel="Internet" />
+						            <f:selectItem itemValue="Other" itemLabel="Other" />
+								</p:selectOneRadio>
+								<p:message for="interest" styleClass="error"/>
+	                           </td>
+	                       </tr>
+	                       <tr>
+	                           <td><label>How likely are you to recommend GMU to others?</label></td>
+	                           <td>
+	                           	<p:autoComplete id="recommend" 
+	                           		value="#{surveyBean.student.recommend}"
+	                           		forceSelection="true"
+	                           		minQueryLength="1"
+	                           		queryDelay="300"
+	                           		multiple="false"
+	                           		completeMethod="#{surveyBean.completeRecommend}">
+	                           	</p:autoComplete>
+	                           	<p:message for="recommend" styleClass="error"/>
+	                           </td>
+	                       </tr>
+	                       <tr>
+	                           <td>
+	                               <label>Additional Comments</label>
+	                           </td>
+	                           <td>
+	                               <p:inputTextarea id="comments" rows="1"
+	                               	value="#{surveyBean.student.comments}" /> 
+	                               <p:message for="comments" styleClass="error"/>
+	                           </td>
+	                       </tr>
+	                   </table>
+	               </fieldset>
+	               <fieldset> 
+	               <!-- raffel section -->
+	                   <legend>Try your luck for a movie ticket!</legend>
+	                   <table>
+	                       <tr>
+	                           <td>
+	                               <label>Raffle</label>
+	                           </td>
+	                           <td>
+	                           	<p:inputText id="data" 
+	                           		value="#{surveyBean.student.raffle}"
+	                               	required="true"
+	                               	requiredMessage="Enter data"
+	                               	validator="#{surveyBean.validateRaffle}" />
+	                               <p:message for="data" styleClass="error"/>
+	                           </td>
+	                       </tr>
+	                   </table>
+	               </fieldset>
+	               <br />
+	               <p:commandButton ajax="false" value="Submit" action="#{surveyBean.submitForm}" />
+				<p:commandButton ajax="false" value="Cancel" type="reset" />
+	        </section>
+        </h:form>
+    </div>
+    <!-- footer -->
+    <footer>
+        <address>
+            Aranta Rokade
+            G01089491 <br />
+            Department of Computer Science<br />
+            Nguyen Engineering Building<br />
+            4400 University Drive<br />
+            Fairfax, VA 22030<br />
+        </address>
+        <img class="logo" src="#{request.contextPath}/images/gmu_logo.png" alt="GMU Logo" />
+    </footer>
+</h:body>
+</html>

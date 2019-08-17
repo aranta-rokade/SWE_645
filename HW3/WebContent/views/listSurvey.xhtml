@@ -1,0 +1,89 @@
+<!-- 
+    Author: Aranta Rokade
+    SWE 645 : Homework 3
+    CS Department Survey Page
+ -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+ 	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Survey | GMU | CS </title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/styles/styles.css" />
+</h:head>
+
+<h:body>
+	<!-- header  -->
+    <header>
+        <img class="logo" src="#{request.contextPath}/images/gmu_logo.png" alt="GMU Logo" />
+        <span>Department of Computer Science</span>
+    </header>
+   	<!-- survey form conatiner -->
+    <div class="conatiner">
+        <section id="list-survey-records">
+            <h1>List Student Survey Records</h1>
+            <table border="1">
+				<thead>
+					<tr>
+						<th class="survey-header" scope="col">First Name</th>
+						<th class="survey-header" scope="col">Last Name</th>
+						<th class="survey-header" scope="col">Street Address</th>
+						<th class="survey-header" scope="col">Zip Code</th>
+						<th class="survey-header" scope="col">City</th>
+						<th class="survey-header" scope="col">State</th>
+						<th class="survey-header" scope="col">Telephone</th>
+						<th class="survey-header" scope="col">Email</th>
+						<th class="survey-header" scope="col">Date of Survey</th>
+						<th class="survey-header" scope="col">Liked About Campus</th>
+						<th class="survey-header" scope="col">Interest in University</th>
+						<th class="survey-header" scope="col">Recommend</th>
+						<th class="survey-header" scope="col">Comments</th>
+						<th class="survey-header" scope="col">Raffle</th>
+					</tr>
+				</thead>
+			
+				<tbody>
+				<ui:repeat var="s" value="#{surveyBean.studentRecords}">
+					<tr>
+					<td>#{s.firstName}</td>
+					<td>#{s.lastName}</td>
+					<td>#{s.address}</td>
+					<td>#{s.zipcode}</td>
+					<td>#{s.city}</td>
+					<td>#{s.state}</td>
+					<td>#{s.phone}</td>
+					<td>#{s.email}</td>
+					<td>#{s.surveyDate}</td>
+					<td>#{s.likes}</td>
+					<td>#{s.interest}</td>
+					<td>#{s.recommend}</td>
+					<td>#{s.comments}</td>
+					<td>#{s.raffle}</td>
+					</tr>	
+				</ui:repeat>
+				</tbody>
+			</table>
+        </section>
+        <h:form>
+        <section id="index-link">
+            <h4>Go to home page? <h:commandLink action="home-page" value="Home Page"/></h4>
+        </section>
+        </h:form>
+    </div>
+    <!-- footer -->
+    <footer>
+        <address>
+            Aranta Rokade
+            G01089491 <br />
+            Department of Computer Science<br />
+            Nguyen Engineering Building<br />
+            4400 University Drive<br />
+            Fairfax, VA 22030<br />
+        </address>
+        <img class="logo" src="#{request.contextPath}/images/gmu_logo.png" alt="GMU Logo" />
+    </footer>
+</h:body>
+</html>

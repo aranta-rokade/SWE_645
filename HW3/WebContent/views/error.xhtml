@@ -1,0 +1,51 @@
+<!-- 
+    Author: Aranta Rokade
+    SWE 645 : Homework 3
+    CS Department Survey Page
+ -->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+ 	  xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Survey | GMU | CS </title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/styles/styles.css" />
+</h:head>
+
+<h:body>
+	<!-- header  -->
+    <header>
+        <img class="logo" src="#{request.contextPath}/images/gmu_logo.png" alt="GMU Logo" />
+        <span>Department of Computer Science</span>
+    </header>
+   	<!-- survey form conatiner -->
+    <div class="conatiner">
+        <section id="error">
+            <h1>Error</h1>
+            <p>
+				Oops! Some error occurred.
+			</p>
+        </section>
+        <h:form>
+		<section id="index-link">
+            <h4>Go to home page? <h:commandLink action="home-page" value="Home Page"/></h4>
+        </section>
+        </h:form>
+    </div>
+    <!-- footer -->
+    <footer>
+        <address>
+            Aranta Rokade
+            G01089491 <br />
+            Department of Computer Science<br />
+            Nguyen Engineering Building<br />
+            4400 University Drive<br />
+            Fairfax, VA 22030<br />
+        </address>
+        <img class="logo" src="#{request.contextPath}/images/gmu_logo.png" alt="GMU Logo" />
+    </footer>
+</h:body>
+</html>

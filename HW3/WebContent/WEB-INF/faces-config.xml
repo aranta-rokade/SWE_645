@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
+
+	<navigation-rule>
+		<from-view-id>*</from-view-id>
+		<navigation-case>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/views/error.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+    
+    <navigation-rule>
+		<from-view-id>/views/*</from-view-id>
+		<navigation-case>
+			<from-outcome>home-page</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/index.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>survey-form</from-outcome>
+			<to-view-id>/views/survey.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>list-survey</from-outcome>
+			<to-view-id>/views/listSurvey.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<navigation-rule>
+		<from-view-id>/views/survey.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>simple-ack</from-outcome>
+			<to-view-id>/views/simpleAcknowledgement.xhtml</to-view-id>
+		</navigation-case>
+		<navigation-case>
+			<from-outcome>winner-ack</from-outcome>
+			<to-view-id>/views/winnerAcknowledgement.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/views/simpleAcknowledgement.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>survey-form</from-outcome>
+			<to-view-id>/views/survey.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	
+	<navigation-rule>
+		<from-view-id>/views/winnerAcknowledgement.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>survey-form</from-outcome>
+			<to-view-id>/views/survey.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+	<managed-bean>
+		<managed-bean-name>surveyBean</managed-bean-name>
+		<managed-bean-class>bean.SurveyBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
+
+</faces-config>

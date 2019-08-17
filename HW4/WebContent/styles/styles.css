@@ -1,0 +1,86 @@
+/* 
+    Author: Aranta Rokade
+    SWE 645 : Homework 2
+    CSS File  
+*/
+
+/* mandatory css */
+
+/* 
+body of the window rendering your page should have a light gray (or a color of your
+choice) background */
+body {
+    margin: 0px;
+    font-family: Calibri, sans-serif;
+    background-color: #fafafa;
+}
+
+/* 
+h1 elements in blue,
+heading at the top of the page should use text-shadows, 
+inside a rectangular box using blue solid border of 5px width */
+h1 {
+    color: blue;
+    border: 5px solid blue;
+}
+
+/* The labels of different fields
+ on the form should be any color 
+ of your choice except black */
+label {
+	color: #123B22;
+	font-weight: bold;
+}
+
+/* include a border around your Survey form. */
+.conatiner {
+    margin: 20px 100px 20px 100px;
+	border: 1px solid black;
+    padding: 20px;
+}
+table tr td {
+    padding: 5px;
+}
+
+/* end of mandatory css */
+
+/* header & footer */
+header {
+    background-color: #123B22;
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    text-align: left;
+    padding: 20px;
+}
+
+header span {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+}
+
+footer {
+    background-color: #123B22;
+    color: white;
+    text-align: right;
+    padding: 20px;
+}
+
+footer address {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 20px;
+}
+
+.logo {
+    vertical-align: middle;
+    width: 110px;
+}
+
+/* end of header & footer */
+
+.error {
+	color: red;
+	font-weight: bold;
+}
