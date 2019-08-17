@@ -1,0 +1,189 @@
+<!-- 
+    Author: Aranta Rokade
+    SWE 645 : Homework 2
+    CS Department Survey Page
+ -->
+<!DOCTYPE html>
+
+<head>
+    <title>Survey | GMU | CS </title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="./styles/styles.css" />
+</head>
+
+<body>
+	<!-- header  -->
+    <header>
+        <img class="logo" src="./images/gmu_logo.png" alt="GMU Logo" />
+        <span>Department of Computer Science</span>
+    </header>
+   	<!-- survey form conatiner -->
+    <div class="conatiner">
+        <section id="survey">
+            <h1>Student Survey</h1>
+            <p>
+                <em>Your feedback is valuable</em>
+            </p>
+            <!-- survey form -->
+            <form action="" method="post">
+                <fieldset>
+                <!-- student info section -->
+                    <legend>Personal Information</legend>
+                    <table>
+                        <tr>
+                            <td>
+                                <label>First Name *</label>
+                            </td>
+                            <td>
+                                <input id="username" type="text" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Last Name *</label>
+                            </td>
+                            <td>
+                                <input id="Lastname" type="text" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Street Address *</label>
+                            </td>
+                            <td>
+                                <input id="address" type="text" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>City *</label>
+                            </td>
+                            <td>
+                                <input id="city" type="text" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>State *</label>
+                            </td>
+                            <td>
+                                <input id="state" type="text" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Zip Code *</label>
+                            </td>
+                            <td>
+                                <input id="zipcode" type="text" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Telephone No. *</label>
+                            </td>
+                            <td>
+                                <input id="telephone" type="text" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Email Id. *</label>
+                            </td>
+                            <td>
+                                <input id="email" type="text" required />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Date of Survey *</label>
+                            </td>
+                            <td>
+                                <input id="date" type="text" required />
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <fieldset>
+                <!-- student feeback section -->
+                    <legend>Feedback</legend>
+                    <table>
+                        <tr>
+                            <td>
+                                <label>What did you like the most about GMU?</label>
+                            </td>
+                            <td>
+                                <input name="likes" type="checkbox" value="0" />Students
+                                <input name="likes" type="checkbox" value="1" />Location
+                                <input name="likes" type="checkbox" value="2" />Campus
+                                <input name="likes" type="checkbox" value="3" />Atmosphere
+                                <input name="likes" type="checkbox" value="4" />Dorm Rooms
+                                <input name="likes" type="checkbox" value="5" />Sports
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>What interested you the most in GMU? *</label>
+                            </td>
+                            <td>
+                                <input name="interest" type="radio" value="0" />Friends
+                                <input name="interest" type="radio" value="1" />Television
+                                <input name="interest" type="radio" value="2" />Internet
+                                <input name="interest" type="radio" value="3" />Other
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>How likey are you to recommend GMU to others? *</label></td>
+                            <td>
+                                <select id="recommend">
+                                    <option value="">--Select--</option>
+                                    <option value="0">Very Likey</option>
+                                    <option value="1">Likey</option>
+                                    <option value="2">Unlikey</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>Additional Comments</label>
+                            </td>
+                            <td>
+                                <textarea id="other" rows="1"></textarea>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <fieldset>
+                <!-- raffel section -->
+                    <legend>Try your luck for a movie ticket!</legend>
+                    <table>
+                        <tr>
+                            <td>
+                                <label>Raffel</label>
+                            </td>
+                            <td>
+                                <input id="data" type="text"/>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <br />
+                <input type="submit" value="Submit" />
+                <input type="reset" value="Cancel" />
+            </form>
+        </section>
+    </div>
+    <!-- footer -->
+    <footer>
+        <address>
+            Aranta Rokade
+            G01089491 <br />
+            Department of Computer Science<br />
+            Nguyen Engineering Building<br />
+            4400 University Drive<br />
+            Fairfax, VA 22030<br />
+        </address>
+        <img class="logo" src="./images/gmu_logo.png" alt="GMU Logo" />
+    </footer>
+</body>
+</html>
